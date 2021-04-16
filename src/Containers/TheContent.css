@@ -1,0 +1,8 @@
+.main-content {
+    width: 95%;
+    grid-area: main;
+    justify-content: space-between;
+    margin: 0px auto;
+    margin-top: 10px;
+  }
+  
