@@ -15,35 +15,25 @@ function App() {
 // const [isAuth, setIsAuth] = useState(false);
 
   return (
+  
+ 
     <Router>
-    <Route path="/" exact>
-      <button>login</button>
-      <button>logout</button>
-    </Route>
-    <ProtectedRoute path="/home" render={(props) => <Home {...props}/>}  /> 
-    
-  {/* <ProtectedRoute exact path="/main" component={main} isAuth={isAuth} /> */}
-    
-  </Router>
-
-    // <BrowserRouter>
-    // <Router>
-    //   <Switch>
-    //     {/* <Route path="/login">
-    //       <ContainerLoginSignup />
-    //     </Route> */}
-    //     {/* <Route path="/home" render={(props) => <Home {...props} />} /> */}
-
-    //     <ProtectedRoute path="/main" component={main} isAuth={isAuth} />
-    //     <Route path="/admin-management" component={adminManagement}>
-    //     </Route>
-
-    //     {/* <Redirect from="/" to="login" /> */}
-    //   </Switch>
-    //   </Router>
-    // </BrowserRouter>
+      <Switch>
+        <Route path="/login">
+          <ContainerLoginSignup />
+        </Route> 
+        <ProtectedRoute path="/home" component={(props) => <Home {...props}/>}  />
 
   
+        <Route exact path="/admin-management" component={adminManagement}>
+        </Route>
+
+        <Redirect from="/" to="login" />
+      </Switch>
+      </Router>
+   
+
+
 
   );
 }

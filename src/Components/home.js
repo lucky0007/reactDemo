@@ -10,16 +10,18 @@ import ProtectedRoute from '../ProtectedRoute';
 
 
 function Home(props) {
-    const routes = props.routes;
+    //const routes = props.routes;
     //const mainPanel = React.useRef(null);
-    const getRoutes = ({routes}) => {
-        return routes.map((prop) => {
-
+    const getRoutes = () => {
+        console.log(props);
+        return routes.map(({component,path,layout}) => {
+            console.log(props.path+path);
             return (
                 <Route
-                    path={prop.path}
-                    render={(props) => <prop.component {...props}/>}
-                  
+                exact
+                    path={props.path+path}
+                    render={component}
+
                      />
             );
 
@@ -31,9 +33,9 @@ function Home(props) {
             <div className="container">
 
                 <Navbar />
-                <Sidebar routes={routes} />     
+                <Sidebar routes={routes} />
                 <div className="main-content">
-                    <Switch>{getRoutes(routes)}</Switch>
+                    <Switch>{getRoutes()}</Switch>
 
                 </div>
             </div>
